@@ -3,3 +3,6 @@ client/node_modules
 
 #Server
 target/
+
+# General
+*.log
