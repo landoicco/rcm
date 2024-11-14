@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  server:
+    build: .
+    image: crm-server
+    container_name: crm-server-cont
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: "curl --fail --silent localhost:8080/actuator/health | grep UP || exit 1"
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
+  client:
+    build: client/
+    image: crm-client
+    container_name: crm-client-cont
+    ports:
+      - "3000:3000"
+    depends_on:
+      server:
+        condition: service_healthy
