@@ -1,5 +1,7 @@
 package dev.lando.crm.model;
 
+import java.math.BigInteger;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,9 +21,9 @@ public class Resident {
     private String address;
     private String email;
     @Column(name = "phone_number")
-    private Integer phoneNumber;
+    private BigInteger phoneNumber;
 
-    public Resident(String firstName, String lastName, String address, String email, Integer phoneNumber) {
+    public Resident(String firstName, String lastName, String address, String email, BigInteger phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;

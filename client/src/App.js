@@ -1,4 +1,4 @@
-import Contacts from "./components/Contacts";
+import Residents from "./components/Residents";
 
 function App() {
   return (
@@ -6,12 +6,12 @@ function App() {
       <nav>
         <div className="nav-wrapper center-align">
           <a href="/" className="brand-logo">
-            Contacts
+            Resident's Booklist
           </a>
         </div>
       </nav>
       <div className="row">
-        <Contacts />
+        <Residents />
       </div>
     </div>
   );
