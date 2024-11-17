@@ -1,16 +1,10 @@
-import Residents from "./Residents";
-import AddResident from "./AddResident";
+import ResidentFinder from "./ResidentFinder";
 
 const Landing = () => {
   return (
     <div>
       <div className="row">
-        <h3 className="center">Add new resident</h3>
-        <AddResident />
-      </div>
-      <div className="row">
-        <h3 className="center">List of residents</h3>
-        <Residents />
+        <ResidentFinder />
       </div>
     </div>
   );
