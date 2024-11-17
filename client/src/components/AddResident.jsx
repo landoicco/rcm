@@ -76,14 +76,14 @@ const AddResident = () => {
             <label htmlFor="email">Address</label>
           </div>
         </div>
-        <div className="row">
+        <div className="row center">
           <button
-            class="btn-large waves-effect waves-light"
+            className="btn-large waves-effect waves-light"
             type="submit"
             name="action"
           >
             Submit
-            <i class="material-icons right">send</i>
+            <i className="material-icons right">send</i>
           </button>
         </div>
       </form>

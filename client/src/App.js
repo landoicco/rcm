@@ -1,17 +1,17 @@
-import Residents from "./components/Residents";
+import Landing from "./components/Landing";
 
 function App() {
   return (
     <div className="container-fluid">
       <nav>
-        <div className="nav-wrapper center-align">
+        <div className="nav-wrapper center teal lighten-2">
           <a href="/" className="brand-logo">
-            Resident's Booklist
+            Resident's Booklist App
           </a>
         </div>
       </nav>
       <div className="row">
-        <Residents />
+        <Landing />
       </div>
     </div>
   );

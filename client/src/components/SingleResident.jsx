@@ -9,9 +9,9 @@ const SingleResident = ({ item }) => {
             </span>
           </div>
           <div className="card-action">
-            <p>{item.address}</p>
-            <p>{item.phoneNumber}</p>
-            <p>{item.email}</p>
+            <blockquote>{item.address}</blockquote>
+            <p>Phone number: {item.phoneNumber}</p>
+            <p>Email: {item.email}</p>
           </div>
         </div>
       </div>

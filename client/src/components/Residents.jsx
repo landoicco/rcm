@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import AddResident from "./AddResident";
 import SingleResident from "./SingleResident";
 
 const Residents = () => {
@@ -13,21 +12,7 @@ const Residents = () => {
     })();
   }, []);
 
-  return residents ? (
-    <div>
-      <div className="row">
-        <h3>Add new resident</h3>
-        <AddResident />
-      </div>
-      <div className="row">
-        {residents.map((item) => (
-          <SingleResident key={item.id} item={item} />
-        ))}
-      </div>
-    </div>
-  ) : (
-    <h3>No data loaded</h3>
-  );
+  return residents.map((item) => <SingleResident key={item.id} item={item} />);
 };
 
 export default Residents;
