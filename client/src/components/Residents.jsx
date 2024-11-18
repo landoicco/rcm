@@ -3,9 +3,10 @@ import { useSearchParams } from "react-router-dom";
 import SingleResident from "./SingleResident";
 import useDataSource from "../hooks/useDataSource";
 
+const RESIDENTS_API_BASE_URL = "http://localhost:8080/api/residents";
+
 const AllResidents = () => {
-  const residentsUrl = "http://localhost:8080/api/residents";
-  const residents = useDataSource(residentsUrl);
+  const residents = useDataSource(RESIDENTS_API_BASE_URL);
 
   return <Residents residents={residents} />;
 };
@@ -13,8 +14,17 @@ const AllResidents = () => {
 const ResidentSearchResult = () => {
   const [searchParams] = useSearchParams();
   const userInput = searchParams.get("input");
-  const residents = useDataSource(
-    `http://localhost:8080/api/residents/firstName/${userInput}`
+  const residents = [];
+
+  // Search for first name, last name and address
+  residents.push(
+    ...useDataSource(`${RESIDENTS_API_BASE_URL}/firstName/${userInput}`)
+  );
+  residents.push(
+    ...useDataSource(`${RESIDENTS_API_BASE_URL}/lastName/${userInput}`)
+  );
+  residents.push(
+    ...useDataSource(`${RESIDENTS_API_BASE_URL}/address/${userInput}`)
   );
 
   return <Residents residents={residents} />;
