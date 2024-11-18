@@ -33,9 +33,9 @@ const AddResident = () => {
   };
 
   return (
-    <div className="row">
+    <div className="container">
       <h3 className="center">Add new resident to database</h3>
-      <form className="col s12" onSubmit={(e) => submitContact(e)}>
+      <form onSubmit={(e) => submitContact(e)}>
         <div className="row">
           <div className="input-field col s6">
             <input
