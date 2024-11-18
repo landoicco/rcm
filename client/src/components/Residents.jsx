@@ -7,7 +7,7 @@ const Residents = () => {
   const residents = useResidents();
   const [queryParams] = useSearchParams();
 
-  console.log(queryParams.get("input"));
+  console.log("Seacrhing for: ", queryParams.get("input"));
 
   return (
     <div className="container">

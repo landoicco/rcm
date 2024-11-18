@@ -1,5 +1,5 @@
 # Compile and package Spring app
-FROM maven as builder
+FROM maven:3.8.7 as builder
 WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline

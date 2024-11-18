@@ -1,53 +1,43 @@
-## CRM App
+## RCM | Resident Contact Manager
 
-### App made with Spring and React
+### What is this?
 
-This app was made for learning purposes. The idea is to create a full-stack application using Spring and React.
+Is a fullstack application made for learning purposes.
 
-The idea is to keep the code minimal and clean, while also provide full details of the job made by each file, as well as their dependencies.
+This code pretends to provide a solution to the problem of a security guard in a apartaments building. When a resident have a visit, the guard needs to connect with the resident to confirm the entry.
 
-## How this works
+This software offers a frontend and a backend that stores and gets data from a database. The guard in this case will be able to search for the data of the resident in the app using the name or the address. This data will be fetched from the database using the backend service.
 
-### `client` (React)
+The guard will also be able of adding, removing, updating and deleting residents data from the database.
 
-### `src` (Spring)
+### How it was build?
 
-#### `Contact.java`
+The frontend was made using **React**, using React Router, Material Design and more stuff along the way.
 
-This file is the model that describes the object we will be storing in our database.
+The backend was made using **Java** and **Spring**. The server uses Spring Data to connect with the database. In this case a **MariaDB** database.
 
-- The `@Data` annotation comes from Lombok. It takes care of generate getters for all members inside the class. Also provides a constructor and implementations for other methods like `equals(), toString(), hashCode()`, etc.
+The client, the server, the database and and instance of adminer are run on separate containers, all orchestrated using **Docker Compose**.
 
-- The `@Entity` annotation comes from `jakarta.persistence`.
-  In Spring Java, an entity is a Java class that represents a table in a relational database, and each instance of the class corresponds to a row in that table.
+### How to run it
 
-- The `@Id` and `@GeneratedValue` annotations come from jakarta.persistence. The `@Id` is used to specify the primary key of an entity.
-  `@GeneratedValue` provides for the specification of generation strategies for the values of primary keys. Meaning that in this case, this annotation will help to generate automatically all new primary keys.
+Make sure you have doker installed, after that just run:
 
-#### `ContactRepository.java`
+```
+docker compose up
+```
 
-This file represents the repository for the Contact entity.
-In Spring Data, a repository is an abstraction layer that simplifies data access and manipulation for a specific domain model or entity. It provides a uniform interface for CRUD (Create, Read, Update, Delete) operations and other data-related functionality, such as querying and pagination.
+You can enter the frontend using: [http://localhost:3000/](http://localhost:3000/)
 
-- The `CrudRepository` interface comes from Spring Data Commons project. This file is the one that allows us to operate with the database.
+You can check the status of the server with the help of Spring Actuator entering: [http://localhost:8080/actuator/health](http://localhost:8080/actuator/health)
 
-- The `@RepositoryRestResource` is a Spring Data REST annotation that enables the automatic exposure of a Spring Data JPA repository as a RESTful web service.
+The endpoint to connect with the server is:
+[http://localhost:8080/api](http://localhost:8080/api)
 
-A Restful Web Service is a web service that conforms to the principles of the Representational State Transfer (REST) architectural style. REST is a lightweight, flexible, and scalable approach to designing networked applications. In a RESTful web service, resources are identified by URIs (Uniform Resource Identifiers), and clients interact with these resources using a fixed set of operations (HTTP methods) such as GET, POST, PUT, and DELETE.
+You can use Adminer to manage the database, entering: [http://localhost:8081/](http://localhost:8081/)
 
-#### `ContactsController.java`
+You can use the following credentials on Adminer:
 
-### Spring
-
-#### General
-
-- JPA = Java Persistance API
-  `CrudRepository` extends `Repository` interface
-- The `CommandLineRunner` interface in Spring Boot is used to indicate that a bean should run when it is contained within a `SpringApplication`. This interface provides a convenient way to execute some code just after the Spring Boot application has started.
-
-#### Annotations
-
-- The `@Autowired` annotation in Spring is used for automatic dependency injection. It enables Spring to inject dependencies into a bean (Java class) without explicit configuration. This annotation is part of the Spring Framework’s Inversion of Control (IoC) container.
-- The `@Component` annotation in Spring is a stereotype annotation that indicates a class belongs to the application’s configuration and can be managed by the Spring IoC (Inversion of Control) container. It’s a generic annotation that can be used as an alternative to other stereotype annotations like `@Service`, `@Controller`, and `@Repository`.
-
-### Java
+```
+user: root
+password: root
+```
