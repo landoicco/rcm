@@ -20,13 +20,19 @@ public class DemoLoader implements CommandLineRunner {
 
     @Override
     public void run(String... strings) throws Exception {
-        this.repository.save(new Resident("Lando", "Icaza", "Street 1", "lando@mail.com", BigInteger.valueOf(2134)));
+        this.repository.save(
+                new Resident("Nicola", "Robertson", "Strawberry Lane", "nicor@mail.com", "(+1) 55 13 22 1126"));
         this.repository
-                .save(new Resident("Fulano", "Mendez", "Street 2", "mendez@mail.com", BigInteger.valueOf(2112334)));
+                .save(new Resident("Kylie", "Walker", "Cleveland Avenue", "kyliew@mail.com",
+                        "(+1) 55 16 65 3356"));
         this.repository
-                .save(new Resident("Sutanita", "Perez", "Street 3", "perez@mail.com", BigInteger.valueOf(2112334)));
-        this.repository.save(new Resident("Delete", "Mee", "Street 4", "mee@mail.com", BigInteger.valueOf(21342334)));
+                .save(new Resident("Stephen", "Metcalfe", "Sherman Street", "stephenm@mail.com",
+                        "(+1) 55 65 65 8676"));
+        this.repository.save(
+                new Resident("Theresa", "MacDonald", "Summit Avenue", "tmcdonald@mail.com",
+                        "(+1) 55 45 15 4056"));
         this.repository
-                .save(new Resident("Maria", "DataBase", "Street 3", "mariadb@mail.com", BigInteger.valueOf(21623434)));
+                .save(new Resident("Katherine", "Walsh", "Beech Street", "kwalsh@mail.com",
+                        "(+1) 55 06 00 3945"));
     }
 }

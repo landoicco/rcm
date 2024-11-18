@@ -21,9 +21,9 @@ public class Resident {
     private String address;
     private String email;
     @Column(name = "phone_number")
-    private BigInteger phoneNumber;
+    private String phoneNumber;
 
-    public Resident(String firstName, String lastName, String address, String email, BigInteger phoneNumber) {
+    public Resident(String firstName, String lastName, String address, String email, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
