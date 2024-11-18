@@ -9,7 +9,7 @@ const ResidentFinder = () => {
       <form onSubmit={(e) => doSearch(e)}>
         <input type="text" placeholder="Search by name or address" />
         <p></p>
-        <button className="btn" type="submit">
+        <button className="btn teal lighten-1" type="submit">
           Search
           <i className="material-icons right">search</i>
         </button>

@@ -1,14 +1,14 @@
 const SingleResident = ({ item }) => {
   return (
     <div>
-      <div className="card blue-grey darken-1">
-        <div className="card-content white-text">
+      <div className="card teal lighten-4">
+        <div className="card-content">
           <span className="card-title">
             {item.firstName} {item.lastName}
           </span>
         </div>
         <div className="card-action">
-          <blockquote>{item.address}</blockquote>
+          <p>Address: {item.address}</p>
           <p>Phone number: {item.phoneNumber}</p>
           <p>Email: {item.email}</p>
         </div>

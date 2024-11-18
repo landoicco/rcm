@@ -1,15 +1,10 @@
 import Landing from "./components/Landing";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className="container-fluid">
-      <nav>
-        <div className="nav-wrapper center teal lighten-2">
-          <a href="/" className="brand-logo">
-            Resident's Booklist App
-          </a>
-        </div>
-      </nav>
+      <Navbar />
       <div className="row">
         <Landing />
       </div>

@@ -79,7 +79,7 @@ const AddResident = () => {
         </div>
         <div className="row center">
           <button
-            className="btn-large waves-effect waves-light"
+            className="btn-large waves-effect waves-light teal lighten-1"
             type="submit"
             name="action"
           >
