@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,12 +27,27 @@ public class ResidentsController {
     }
 
     @GetMapping("/residents")
-    Collection<Resident> contacts() {
+    Collection<Resident> residents() {
         return (Collection<Resident>) residentRepository.findAll();
     }
 
+    @GetMapping("/residents/firstName/{firstName}")
+    Collection<Resident> getSingleResidentByFirstName(@PathVariable String firstName) {
+        return (Collection<Resident>) residentRepository.findByFirstNameIgnoreCase(firstName);
+    }
+
+    @GetMapping("/residents/lastName/{lastName}")
+    Collection<Resident> getSingleResidentByLastName(@PathVariable String lastName) {
+        return (Collection<Resident>) residentRepository.findByLastNameIgnoreCase(lastName);
+    }
+
+    @GetMapping("/residents/address/{address}")
+    Collection<Resident> getSingleResidentByAddress(@PathVariable String address) {
+        return (Collection<Resident>) residentRepository.findByAddressIgnoreCase(address);
+    }
+
     @PostMapping("/residents")
-    ResponseEntity<Resident> createContact(@Valid @RequestBody Resident resident) throws URISyntaxException {
+    ResponseEntity<Resident> createResident(@Valid @RequestBody Resident resident) throws URISyntaxException {
         Resident result = residentRepository.save(resident);
         return ResponseEntity.ok().body(result);
     }
