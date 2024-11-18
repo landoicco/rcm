@@ -8,5 +8,5 @@ RUN mvn package -DskipTests
 
 # Run packaged Spring app
 FROM openjdk:18 as runner
-COPY --from=builder /app/target/crm-0.0.1-SNAPSHOT.jar crm-server.jar
-ENTRYPOINT ["java", "-jar", "crm-server.jar"]
+COPY --from=builder /app/target/rcm-1.0.0.jar rcm-server.jar
+ENTRYPOINT ["java", "-jar", "rcm-server.jar"]

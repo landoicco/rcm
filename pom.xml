@@ -7,19 +7,24 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.3.5</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath />
 	</parent>
 	<groupId>dev.lando</groupId>
-	<artifactId>crm</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>rcm</artifactId>
+	<version>1.0.0</version>
 	<name>crm</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Resident contact manager</description>
 	<url />
 	<licenses>
 		<license />
 	</licenses>
 	<developers>
-		<developer />
+		<developer>
+			<id>lando</id>
+			<name>Lando K. Icaza Cocano</name>
+			<email>landoicco@gmail.com</email>
+			<url>https://github.com/landoicco</url>
+		</developer>
 	</developers>
 	<scm>
 		<connection />
@@ -49,7 +54,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- Added by Lando -->
 		<dependency>
 			<groupId>jakarta.validation</groupId>
 			<artifactId>jakarta.validation-api</artifactId>
@@ -59,8 +63,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-		<!-- MariaDB Driver -->
-		<!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
 		<dependency>
 			<groupId>org.mariadb.jdbc</groupId>
 			<artifactId>mariadb-java-client</artifactId>

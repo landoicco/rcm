@@ -39,7 +39,7 @@ services:
       retries: 10
     environment:
       - MARIADB_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=crmdb
+      - MYSQL_DATABASE=rcmdb
 
   adminer:
     image: adminer
