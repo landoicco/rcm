@@ -1,14 +1,26 @@
 import { useSearchParams } from "react-router-dom";
 
 import SingleResident from "./SingleResident";
-import useResidents from "../hooks/useResidents";
+import useDataSource from "../hooks/useDataSource";
 
-const Residents = () => {
-  const residents = useResidents();
-  const [queryParams] = useSearchParams();
+const AllResidents = () => {
+  const residentsUrl = "http://localhost:8080/api/residents";
+  const residents = useDataSource(residentsUrl);
 
-  console.log("Seacrhing for: ", queryParams.get("input"));
+  return <Residents residents={residents} />;
+};
 
+const ResidentSearchResult = () => {
+  const [searchParams] = useSearchParams();
+  const userInput = searchParams.get("input");
+  const residents = useDataSource(
+    `http://localhost:8080/api/residents/firstName/${userInput}`
+  );
+
+  return <Residents residents={residents} />;
+};
+
+const Residents = ({ residents }) => {
   return (
     <div className="container">
       <h3 className="center">Residents</h3>
@@ -19,4 +31,4 @@ const Residents = () => {
   );
 };
 
-export default Residents;
+export { AllResidents, ResidentSearchResult };

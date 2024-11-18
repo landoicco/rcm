@@ -15,8 +15,7 @@ const ResidentFinder = () => {
           ref={inputRef}
           onChange={() => setInput(inputRef.current.value)}
         />
-        <p></p>
-        <Link to={`/residents?input=${input}`}>
+        <Link to={`/resident?input=${input}`}>
           <button className="btn teal lighten-1" type="submit">
             Search
             <i className="material-icons right">search</i>

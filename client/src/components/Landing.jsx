@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import ResidentFinder from "./ResidentFinder";
 import AddResident from "./AddResident";
-import Residents from "./Residents";
+import { AllResidents, ResidentSearchResult } from "./Residents";
 
 const Landing = () => {
   return (
@@ -10,7 +10,8 @@ const Landing = () => {
       <Routes>
         <Route path="/" element={<ResidentFinder />} />
         <Route path="/add" element={<AddResident />} />
-        <Route path="/residents" element={<Residents />} />
+        <Route path="/residents" element={<AllResidents />} />
+        <Route path="/resident" element={<ResidentSearchResult />} />
       </Routes>
     </BrowserRouter>
   );
