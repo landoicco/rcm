@@ -1,38 +1,67 @@
 package dev.lando.crm.runner;
 
-import java.math.BigInteger;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import dev.lando.crm.model.Residence;
 import dev.lando.crm.model.Resident;
+import dev.lando.crm.repo.ResidenceRepository;
 import dev.lando.crm.repo.ResidentRepository;
 
+/**
+ * This class takes care of creating mock data on the database
+ * to allow testing on the app
+ */
 @Component
 public class DemoLoader implements CommandLineRunner {
-    private final ResidentRepository repository;
+        private final ResidentRepository residentRepository;
+        private final ResidenceRepository residenceRepository;
 
-    @Autowired
-    public DemoLoader(ResidentRepository repository) {
-        this.repository = repository;
-    }
+        @Autowired
+        public DemoLoader(ResidentRepository residentRepository, ResidenceRepository residenceRepository) {
+                this.residentRepository = residentRepository;
+                this.residenceRepository = residenceRepository;
+        }
 
-    @Override
-    public void run(String... strings) throws Exception {
-        this.repository.save(
-                new Resident("Nicola", "Robertson", "Strawberry Lane", "nicor@mail.com", "(+1) 55 13 22 1126"));
-        this.repository
-                .save(new Resident("Kylie", "Walker", "Cleveland Avenue", "kyliew@mail.com",
-                        "(+1) 55 16 65 3356"));
-        this.repository
-                .save(new Resident("Stephen", "Metcalfe", "Sherman Street", "stephenm@mail.com",
-                        "(+1) 55 65 65 8676"));
-        this.repository.save(
-                new Resident("Theresa", "MacDonald", "Summit Avenue", "tmcdonald@mail.com",
-                        "(+1) 55 45 15 4056"));
-        this.repository
-                .save(new Resident("Katherine", "Walsh", "Beech Street", "kwalsh@mail.com",
-                        "(+1) 55 06 00 3945"));
-    }
+        @Override
+        public void run(String... strings) throws Exception {
+
+                // Define Walsh family
+                Residence walshHouse = new Residence("Strawberry St.", false, null);
+
+                Resident walshOne = new Resident("Stan", "Walsh", walshHouse, "swalsh@mail.com",
+                                "(+1) 55 06 00 3945");
+                Resident walshTwo = new Resident("Theresa", "Walsh", walshHouse, "twalsh@mail.com",
+                                "(+1) 55 45 15 4056");
+
+                this.residenceRepository.save(walshHouse);
+                this.residentRepository.save(walshOne);
+                this.residentRepository.save(walshTwo);
+
+                // Define Robertson family
+                Residence robertsonHouse = new Residence("Cleveland Av.", false, null);
+
+                Resident robertsonOne = new Resident("Kevin", "Robertson", robertsonHouse, "kevinr@mail.com",
+                                "(+1) 55 06 23 3345");
+                Resident robertsonTwo = new Resident("Theresa", "Robertson", robertsonHouse, "theresar@mail.com",
+                                "(+1) 55 45 47 0845");
+                Resident robertsonThree = new Resident("Mark", "Robertson", robertsonHouse, "markr@mail.com",
+                                "(+1) 55 88 15 7642");
+
+                this.residenceRepository.save(robertsonHouse);
+                this.residentRepository.save(robertsonOne);
+                this.residentRepository.save(robertsonTwo);
+                this.residentRepository.save(robertsonThree);
+
+                // Define Perez family
+                Residence perezHouse = new Residence("Beech St.", false, null);
+
+                Resident perezOne = new Resident("Carlos", "Perez", perezHouse, "cperez@mail.com",
+                                "(+1) 55 65 15 5664");
+
+                this.residenceRepository.save(perezHouse);
+                this.residentRepository.save(perezOne);
+
+        }
 }
