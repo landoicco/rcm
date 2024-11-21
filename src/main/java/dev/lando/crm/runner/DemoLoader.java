@@ -19,7 +19,7 @@ public class DemoLoader implements CommandLineRunner {
         private final ResidenceRepository residenceRepository;
 
         @Autowired
-        public DemoLoader(ResidentRepository residentRepository, ResidenceRepository residenceRepository) {
+        public DemoLoader(ResidenceRepository residenceRepository, ResidentRepository residentRepository) {
                 this.residentRepository = residentRepository;
                 this.residenceRepository = residenceRepository;
         }
@@ -28,11 +28,12 @@ public class DemoLoader implements CommandLineRunner {
         public void run(String... strings) throws Exception {
 
                 // Define Walsh family
-                Residence walshHouse = new Residence("Strawberry St.", false, null);
-
-                Resident walshOne = new Resident("Stan", "Walsh", walshHouse, "swalsh@mail.com",
+                Residence walshHouse = new Residence("Strawberry St.", 1, false);
+                Resident walshOne = new Resident("Stan", "Walsh", walshHouse,
+                                "swalsh@mail.com",
                                 "(+1) 55 06 00 3945");
-                Resident walshTwo = new Resident("Theresa", "Walsh", walshHouse, "twalsh@mail.com",
+                Resident walshTwo = new Resident("Dan", "Walsh", walshHouse,
+                                "twalsh@mail.com",
                                 "(+1) 55 45 15 4056");
 
                 this.residenceRepository.save(walshHouse);
@@ -40,13 +41,16 @@ public class DemoLoader implements CommandLineRunner {
                 this.residentRepository.save(walshTwo);
 
                 // Define Robertson family
-                Residence robertsonHouse = new Residence("Cleveland Av.", false, null);
+                Residence robertsonHouse = new Residence("Banana St.", 2, false);
 
-                Resident robertsonOne = new Resident("Kevin", "Robertson", robertsonHouse, "kevinr@mail.com",
+                Resident robertsonOne = new Resident("Kevin", "Robertson", robertsonHouse,
+                                "kevinr@mail.com",
                                 "(+1) 55 06 23 3345");
-                Resident robertsonTwo = new Resident("Theresa", "Robertson", robertsonHouse, "theresar@mail.com",
+                Resident robertsonTwo = new Resident("Theresa", "Robertson", robertsonHouse,
+                                "theresar@mail.com",
                                 "(+1) 55 45 47 0845");
-                Resident robertsonThree = new Resident("Mark", "Robertson", robertsonHouse, "markr@mail.com",
+                Resident robertsonThree = new Resident("Mark", "Robertson", robertsonHouse,
+                                "markr@mail.com",
                                 "(+1) 55 88 15 7642");
 
                 this.residenceRepository.save(robertsonHouse);
@@ -55,9 +59,10 @@ public class DemoLoader implements CommandLineRunner {
                 this.residentRepository.save(robertsonThree);
 
                 // Define Perez family
-                Residence perezHouse = new Residence("Beech St.", false, null);
+                Residence perezHouse = new Residence("Peach St.", 3, false);
 
-                Resident perezOne = new Resident("Carlos", "Perez", perezHouse, "cperez@mail.com",
+                Resident perezOne = new Resident("Carlos", "Perez", perezHouse,
+                                "cperez@mail.com",
                                 "(+1) 55 65 15 5664");
 
                 this.residenceRepository.save(perezHouse);

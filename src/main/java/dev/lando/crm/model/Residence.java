@@ -20,7 +20,11 @@ public class Residence {
     @GeneratedValue
     private Long id;
 
-    private String address;
+    @Column(name = "street_name")
+    private String street;
+
+    @Column(name = "exterior_number")
+    private int extNumber;
 
     @Column(name = "is_empty")
     private boolean isEmpty;
@@ -28,12 +32,13 @@ public class Residence {
     @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Resident> residents = new ArrayList<>();
 
-    private Residence() {
+    public Residence(String street, int extNumber, boolean isEmpty) {
+        this.street = street;
+        this.extNumber = extNumber;
+        this.isEmpty = isEmpty;
+
     }
 
-    public Residence(String address, boolean isEmpty, List<Resident> residents) {
-        this.address = address;
-        this.isEmpty = isEmpty;
-        this.residents = residents;
+    private Residence() {
     }
 }

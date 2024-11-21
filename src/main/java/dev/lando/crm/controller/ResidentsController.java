@@ -41,13 +41,6 @@ public class ResidentsController {
         return (Collection<Resident>) residentRepository.findByLastNameIgnoreCase(lastName);
     }
 
-    // @GetMapping("/residents/address/{address}")
-    // Collection<Resident> getSingleResidentByAddress(@PathVariable String address)
-    // {
-    // return (Collection<Resident>)
-    // residentRepository.findByAddressIgnoreCase(address);
-    // }
-
     @PostMapping("/residents")
     ResponseEntity<Resident> createResident(@Valid @RequestBody Resident resident) throws URISyntaxException {
         Resident result = residentRepository.save(resident);
