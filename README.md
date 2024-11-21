@@ -20,7 +20,7 @@ The client, the server, the database and and instance of adminer are run on sepa
 
 ### How to run it
 
-Make sure you have doker installed, after that just run:
+Make sure you have docker installed, after that just run:
 
 ```
 docker compose up

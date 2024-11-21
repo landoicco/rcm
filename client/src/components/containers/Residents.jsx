@@ -23,9 +23,6 @@ const ResidentSearchResult = () => {
   residents.push(
     ...useDataSource(`${RESIDENTS_API_BASE_URL}/lastName/${userInput}`)
   );
-  residents.push(
-    ...useDataSource(`${RESIDENTS_API_BASE_URL}/address/${userInput}`)
-  );
 
   return <Residents residents={residents} />;
 };
@@ -33,7 +30,7 @@ const ResidentSearchResult = () => {
 const Residents = ({ residents }) => {
   return (
     <div className="container">
-      <h3 className="center">Residentss3453453454543s4eva</h3>
+      <h3 className="center">Residents</h3>
       {residents.map((item) => (
         <SingleResident key={item.id} item={item} />
       ))}

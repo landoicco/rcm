@@ -26,4 +26,9 @@ public class ResidencesController {
     Collection<Residence> getAllResidencesOnStreet(@PathVariable String street) {
         return (Collection<Residence>) residenceRepository.findAllByStreet(street);
     }
+
+    @GetMapping("/residences")
+    Collection<Residence> getAllResidences() {
+        return (Collection<Residence>) residenceRepository.findAll();
+    }
 }

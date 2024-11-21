@@ -28,7 +28,7 @@ public class DemoLoader implements CommandLineRunner {
         public void run(String... strings) throws Exception {
 
                 // Define Walsh family
-                Residence walshHouse = new Residence("Strawberry St.", "1", false);
+                Residence walshHouse = new Residence("Strawberry", "1", false);
                 Resident walshOne = new Resident("Stan", "Walsh", walshHouse,
                                 "swalsh@mail.com",
                                 "(+1) 55 06 00 3945");
