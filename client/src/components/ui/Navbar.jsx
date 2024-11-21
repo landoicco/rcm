@@ -7,13 +7,30 @@ const Navbar = () => {
         </a>
         <ul className="left hide-on-med-and-down">
           <li>
-            <a href="/add">Add Resident</a>
+            <a href="#">Show Residences</a>
           </li>
           <li>
             <a href="/residents">Show Residents</a>
           </li>
           <li>
-            <a href="/">Find Resident</a>
+            <a href="/">About</a>
+          </li>
+        </ul>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a href="/">
+              <i class="material-icons">search</i>
+            </a>
+          </li>
+          <li>
+            <a href="/add">
+              <i class="material-icons">person_add</i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="material-icons">pets</i>
+            </a>
           </li>
         </ul>
       </div>
