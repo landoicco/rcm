@@ -23,7 +23,7 @@ public class ResidencesController {
     }
 
     @GetMapping("/residences/street/{street}")
-    Collection<Residence> getAllResidenceOnStreet(@PathVariable String street) {
-        return (Collection<Residence>) residenceRepository.findByStreetLike(street);
+    Collection<Residence> getAllResidencesOnStreet(@PathVariable String street) {
+        return (Collection<Residence>) residenceRepository.findAllByStreet(street);
     }
 }

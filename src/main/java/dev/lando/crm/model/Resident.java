@@ -1,5 +1,7 @@
 package dev.lando.crm.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,6 +23,7 @@ public class Resident {
     @Column(name = "last_name")
     private String lastName;
 
+    @JsonBackReference
     @ManyToOne
     private Residence residence;
 

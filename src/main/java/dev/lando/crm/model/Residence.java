@@ -3,6 +3,8 @@ package dev.lando.crm.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,15 +26,16 @@ public class Residence {
     private String street;
 
     @Column(name = "exterior_number")
-    private int extNumber;
+    private String extNumber;
 
     @Column(name = "is_empty")
     private boolean isEmpty;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Resident> residents = new ArrayList<>();
 
-    public Residence(String street, int extNumber, boolean isEmpty) {
+    public Residence(String street, String extNumber, boolean isEmpty) {
         this.street = street;
         this.extNumber = extNumber;
         this.isEmpty = isEmpty;

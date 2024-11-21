@@ -8,7 +8,7 @@ import dev.lando.crm.model.Residence;
 
 public interface ResidenceRepository extends JpaRepository<Residence, Long> {
 
-    List<Residence> findByStreetLike(String street);
+    List<Residence> findAllByStreet(String street);
 
-    List<Residence> findByExtNumber(int extNum);
+    List<Residence> findByStreetAndExtNumber(String street, String extNumber);
 }
