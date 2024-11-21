@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import ResidentFinder from "./ResidentFinder";
-import AddResident from "./AddResident";
-import { AllResidents, ResidentSearchResult } from "./Residents";
+import ResidentFinder from "../forms/ResidentFinder";
+import AddResident from "../forms/AddResident";
+import { AllResidents, ResidentSearchResult } from "../containers/Residents";
+import Residences from "../containers/Residences";
 
 const Landing = () => {
   return (
@@ -12,6 +13,7 @@ const Landing = () => {
         <Route path="/add" element={<AddResident />} />
         <Route path="/residents" element={<AllResidents />} />
         <Route path="/resident" element={<ResidentSearchResult />} />
+        <Route path="/residences" element={<Residences />} />
       </Routes>
     </BrowserRouter>
   );

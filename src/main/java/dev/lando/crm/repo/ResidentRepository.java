@@ -10,12 +10,12 @@ import dev.lando.crm.model.Resident;
 @RepositoryRestResource
 public interface ResidentRepository extends JpaRepository<Resident, Long> {
 
-    List<Resident> findByFirstNameOrAddressIgnoreCase(String firstName, String address);
-
     List<Resident> findByFirstNameIgnoreCase(String firstName);
 
     List<Resident> findByLastNameIgnoreCase(String lastName);
 
-    List<Resident> findByAddressIgnoreCase(String address);
+    List<Resident> findByResidenceStreetIgnoreCase(String street);
+
+    List<Resident> findByResidenceStreet_AndResidenceExtNumber(String street, String extNumber);
 
 }

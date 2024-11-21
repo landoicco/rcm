@@ -1,9 +1,8 @@
 import { useSearchParams } from "react-router-dom";
 
-import SingleResident from "./SingleResident";
-import useDataSource from "../hooks/useDataSource";
-
-const RESIDENTS_API_BASE_URL = "http://localhost:8080/api/residents";
+import SingleResident from "../model/SingleResident";
+import useDataSource from "../../hooks/useDataSource";
+import { RESIDENTS_API_BASE_URL } from "../../commons/endpoints";
 
 const AllResidents = () => {
   const residents = useDataSource(RESIDENTS_API_BASE_URL);
@@ -14,9 +13,10 @@ const AllResidents = () => {
 const ResidentSearchResult = () => {
   const [searchParams] = useSearchParams();
   const userInput = searchParams.get("input");
+  const userInputArr = userInput.split(" ");
   const residents = [];
 
-  // Search for first name, last name and address
+  // Search for first name, last name and residence
   residents.push(
     ...useDataSource(`${RESIDENTS_API_BASE_URL}/firstName/${userInput}`)
   );
@@ -24,7 +24,12 @@ const ResidentSearchResult = () => {
     ...useDataSource(`${RESIDENTS_API_BASE_URL}/lastName/${userInput}`)
   );
   residents.push(
-    ...useDataSource(`${RESIDENTS_API_BASE_URL}/address/${userInput}`)
+    ...useDataSource(`${RESIDENTS_API_BASE_URL}/residence/${userInput}`)
+  );
+  residents.push(
+    ...useDataSource(
+      `${RESIDENTS_API_BASE_URL}/residence/${userInputArr[0]}/${userInputArr[1]}`
+    )
   );
 
   return <Residents residents={residents} />;

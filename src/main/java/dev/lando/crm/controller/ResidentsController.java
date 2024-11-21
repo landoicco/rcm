@@ -41,9 +41,16 @@ public class ResidentsController {
         return (Collection<Resident>) residentRepository.findByLastNameIgnoreCase(lastName);
     }
 
-    @GetMapping("/residents/address/{address}")
-    Collection<Resident> getSingleResidentByAddress(@PathVariable String address) {
-        return (Collection<Resident>) residentRepository.findByAddressIgnoreCase(address);
+    @GetMapping("/residents/residence/{street}")
+    Collection<Resident> getResidenceByResidenceStreet(@PathVariable String street) {
+        return (Collection<Resident>) residentRepository.findByResidenceStreetIgnoreCase(street);
+    }
+
+    @GetMapping("/residents/residence/{street}/{extNumber}")
+    Collection<Resident> getResidenceByResidenceStreetAndExteriorNumber(@PathVariable String street,
+            @PathVariable String extNumber) {
+        return (Collection<Resident>) residentRepository.findByResidenceStreet_AndResidenceExtNumber(street,
+                extNumber);
     }
 
     @PostMapping("/residents")
