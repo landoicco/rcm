@@ -14,8 +14,8 @@ public interface ResidentRepository extends JpaRepository<Resident, Long> {
 
     List<Resident> findByLastNameIgnoreCase(String lastName);
 
-    List<Resident> findByResidence_StreetIgnoreCase(String street);
+    List<Resident> findByResidenceStreetIgnoreCase(String street);
 
-    List<Resident> findByResidence_Street_AndResidenceExtNumber(String street, String extNumber);
+    List<Resident> findByResidenceStreet_AndResidenceExtNumber(String street, String extNumber);
 
 }

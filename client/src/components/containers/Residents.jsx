@@ -14,14 +14,23 @@ const AllResidents = () => {
 const ResidentSearchResult = () => {
   const [searchParams] = useSearchParams();
   const userInput = searchParams.get("input");
+  const userInputArr = userInput.split(" ");
   const residents = [];
 
-  // Search for first name, last name and address
+  // Search for first name, last name and residence
   residents.push(
     ...useDataSource(`${RESIDENTS_API_BASE_URL}/firstName/${userInput}`)
   );
   residents.push(
     ...useDataSource(`${RESIDENTS_API_BASE_URL}/lastName/${userInput}`)
+  );
+  residents.push(
+    ...useDataSource(`${RESIDENTS_API_BASE_URL}/residence/${userInput}`)
+  );
+  residents.push(
+    ...useDataSource(
+      `${RESIDENTS_API_BASE_URL}/residence/${userInputArr[0]}/${userInputArr[1]}`
+    )
   );
 
   return <Residents residents={residents} />;

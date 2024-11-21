@@ -41,7 +41,7 @@ public class DemoLoader implements CommandLineRunner {
                 this.residentRepository.save(walshTwo);
 
                 // Define Robertson family
-                Residence robertsonHouse = new Residence("Banana St.", "2", false);
+                Residence robertsonHouse = new Residence("Banana", "2", false);
 
                 Resident robertsonOne = new Resident("Kevin", "Robertson", robertsonHouse,
                                 "kevinr@mail.com",
@@ -59,7 +59,7 @@ public class DemoLoader implements CommandLineRunner {
                 this.residentRepository.save(robertsonThree);
 
                 // Define Perez family
-                Residence perezHouse = new Residence("Peach St.", "3", false);
+                Residence perezHouse = new Residence("Peach", "3", false);
 
                 Resident perezOne = new Resident("Carlos", "Perez", perezHouse,
                                 "cperez@mail.com",

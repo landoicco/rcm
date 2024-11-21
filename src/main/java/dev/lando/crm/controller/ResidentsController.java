@@ -43,13 +43,13 @@ public class ResidentsController {
 
     @GetMapping("/residents/residence/{street}")
     Collection<Resident> getResidenceByResidenceStreet(@PathVariable String street) {
-        return (Collection<Resident>) residentRepository.findByResidence_StreetIgnoreCase(street);
+        return (Collection<Resident>) residentRepository.findByResidenceStreetIgnoreCase(street);
     }
 
     @GetMapping("/residents/residence/{street}/{extNumber}")
     Collection<Resident> getResidenceByResidenceStreetAndExteriorNumber(@PathVariable String street,
             @PathVariable String extNumber) {
-        return (Collection<Resident>) residentRepository.findByResidence_Street_AndResidenceExtNumber(street,
+        return (Collection<Resident>) residentRepository.findByResidenceStreet_AndResidenceExtNumber(street,
                 extNumber);
     }
 

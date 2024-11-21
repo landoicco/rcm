@@ -40,4 +40,5 @@ You can use the following credentials on Adminer:
 ```
 user: root
 password: root
+database: database
 ```
