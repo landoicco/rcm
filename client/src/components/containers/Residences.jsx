@@ -1,7 +1,6 @@
 import SingleResidence from "../model/SingleResidence";
 import useDataSource from "../../hooks/useDataSource";
-
-const RESIDENCES_API_BASE_URL = "http://localhost:8080/api/residences";
+import { RESIDENCES_API_BASE_URL } from "../../commons/endpoints";
 
 const Residences = () => {
   const residences = useDataSource(RESIDENCES_API_BASE_URL);

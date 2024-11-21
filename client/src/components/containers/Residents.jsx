@@ -2,8 +2,7 @@ import { useSearchParams } from "react-router-dom";
 
 import SingleResident from "../model/SingleResident";
 import useDataSource from "../../hooks/useDataSource";
-
-const RESIDENTS_API_BASE_URL = "http://localhost:8080/api/residents";
+import { RESIDENTS_API_BASE_URL } from "../../commons/endpoints";
 
 const AllResidents = () => {
   const residents = useDataSource(RESIDENTS_API_BASE_URL);
