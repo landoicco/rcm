@@ -27,6 +27,8 @@ public class Resident {
     @ManyToOne
     private Residence residence;
 
+    private String address;
+
     private String email;
 
     @Column(name = "phone_number")
@@ -38,6 +40,8 @@ public class Resident {
         this.residence = residence;
         this.email = email;
         this.phoneNumber = phoneNumber;
+
+        this.address = residence.getStreet() + " St., " + residence.getExtNumber();
     }
 
     private Resident() {
