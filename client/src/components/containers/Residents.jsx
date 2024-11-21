@@ -1,7 +1,7 @@
 import { useSearchParams } from "react-router-dom";
 
-import SingleResident from "./SingleResident";
-import useDataSource from "../hooks/useDataSource";
+import SingleResident from "../model/SingleResident";
+import useDataSource from "../../hooks/useDataSource";
 
 const RESIDENTS_API_BASE_URL = "http://localhost:8080/api/residents";
 
@@ -33,7 +33,7 @@ const ResidentSearchResult = () => {
 const Residents = ({ residents }) => {
   return (
     <div className="container">
-      <h3 className="center">Residents</h3>
+      <h3 className="center">Residentss3453453454543s4eva</h3>
       {residents.map((item) => (
         <SingleResident key={item.id} item={item} />
       ))}

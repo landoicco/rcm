@@ -1,5 +1,5 @@
-import Landing from "./components/Landing";
-import Navbar from "./components/Navbar";
+import Landing from "./components/ui/Landing";
+import Navbar from "./components/ui/Navbar";
 
 function App() {
   return (
