@@ -41,7 +41,7 @@ public class Resident {
         this.email = email;
         this.phoneNumber = phoneNumber;
 
-        this.address = residence.getStreet() + " St., " + residence.getExtNumber();
+        this.address = getResidence().getStreet() + " St., " + getResidence().getExtNumber();
     }
 
     private Resident() {

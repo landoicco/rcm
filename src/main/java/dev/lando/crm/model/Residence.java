@@ -35,6 +35,10 @@ public class Residence {
     @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Resident> residents = new ArrayList<>();
 
+    @JsonManagedReference
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Pet> pets = new ArrayList<>();
+
     public Residence(String street, String extNumber, boolean isEmpty) {
         this.street = street;
         this.extNumber = extNumber;

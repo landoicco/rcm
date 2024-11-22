@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import dev.lando.crm.model.Pet;
 import dev.lando.crm.model.Residence;
 import dev.lando.crm.model.Resident;
+import dev.lando.crm.repo.PetRepository;
 import dev.lando.crm.repo.ResidenceRepository;
 import dev.lando.crm.repo.ResidentRepository;
 
@@ -17,11 +19,14 @@ import dev.lando.crm.repo.ResidentRepository;
 public class MockDataLoader implements CommandLineRunner {
         private final ResidentRepository residentRepository;
         private final ResidenceRepository residenceRepository;
+        private final PetRepository petRepository;
 
         @Autowired
-        public MockDataLoader(ResidenceRepository residenceRepository, ResidentRepository residentRepository) {
+        public MockDataLoader(ResidenceRepository residenceRepository, ResidentRepository residentRepository,
+                        PetRepository petRepository) {
                 this.residentRepository = residentRepository;
                 this.residenceRepository = residenceRepository;
+                this.petRepository = petRepository;
         }
 
         @Override
@@ -67,10 +72,15 @@ public class MockDataLoader implements CommandLineRunner {
                                 "jaynef@mail.com",
                                 "(+1)-661-699-9222");
 
+                Pet franeckiPetOne = new Pet("Bruno", "Cat", franeckiHouse);
+                Pet franeckiPetTwo = new Pet("Marie", "Cat", franeckiHouse);
+
                 this.residenceRepository.save(franeckiHouse);
                 this.residentRepository.save(franeckiOne);
                 this.residentRepository.save(franeckiTwo);
                 this.residentRepository.save(franeckiThree);
+                this.petRepository.save(franeckiPetOne);
+                this.petRepository.save(franeckiPetTwo);
 
                 /*
                  * DEFINE BELL STREET
@@ -119,15 +129,18 @@ public class MockDataLoader implements CommandLineRunner {
                 /*
                  * DEFINE SAPPHIRE STREET
                  */
-                // Define Martell family adding
+                // Define Martell family
                 Residence martellHouse = new Residence("Sapphire", "354", false);
 
                 Resident martellOne = new Resident("Sonny", "Martell", martellHouse,
                                 "sonnyp@mail.com",
                                 "(+1) 55 65 15 5664");
 
+                Pet martellPet = new Pet("Firulais", "Dog", martellHouse);
+
                 this.residenceRepository.save(martellHouse);
                 this.residentRepository.save(martellOne);
+                this.petRepository.save(martellPet);
 
         }
 }
