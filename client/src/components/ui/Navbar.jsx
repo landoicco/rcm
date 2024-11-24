@@ -16,20 +16,20 @@ const Navbar = () => {
             <a href="/">About</a>
           </li>
         </ul>
-        <ul class="right hide-on-med-and-down">
+        <ul className="right hide-on-med-and-down">
           <li>
             <a href="/">
-              <i class="material-icons">search</i>
+              <i className="material-icons">search</i>
             </a>
           </li>
           <li>
             <a href="/add">
-              <i class="material-icons">person_add</i>
+              <i className="material-icons">person_add</i>
             </a>
           </li>
           <li>
             <a href="/">
-              <i class="material-icons">pets</i>
+              <i className="material-icons">pets</i>
             </a>
           </li>
         </ul>
