@@ -26,27 +26,27 @@ public class ResidentsController {
         this.residentRepository = contactRepository;
     }
 
-    @GetMapping("/residents")
+    @GetMapping("/resident/all")
     Collection<Resident> residents() {
         return (Collection<Resident>) residentRepository.findAll();
     }
 
-    @GetMapping("/residents/firstName/{firstName}")
+    @GetMapping("/resident/firstName/{firstName}")
     Collection<Resident> getSingleResidentByFirstName(@PathVariable String firstName) {
         return (Collection<Resident>) residentRepository.findByFirstNameIgnoreCase(firstName);
     }
 
-    @GetMapping("/residents/lastName/{lastName}")
+    @GetMapping("/resident/lastName/{lastName}")
     Collection<Resident> getSingleResidentByLastName(@PathVariable String lastName) {
         return (Collection<Resident>) residentRepository.findByLastNameIgnoreCase(lastName);
     }
 
-    @GetMapping("/residents/residence/{street}")
+    @GetMapping("/resident/residence/{street}")
     Collection<Resident> getResidenceByResidenceStreet(@PathVariable String street) {
         return (Collection<Resident>) residentRepository.findByResidenceStreetIgnoreCase(street);
     }
 
-    @GetMapping("/residents/residence/{street}/{extNumber}")
+    @GetMapping("/resident/residence/{street}/{extNumber}")
     Collection<Resident> getResidenceByResidenceStreetAndExteriorNumber(@PathVariable String street,
             @PathVariable String extNumber) {
         return (Collection<Resident>) residentRepository.findByResidenceStreet_AndResidenceExtNumber(street,

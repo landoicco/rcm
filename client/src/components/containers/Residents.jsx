@@ -5,7 +5,7 @@ import useDataSource from "../../hooks/useDataSource";
 import { RESIDENTS_API_BASE_URL } from "../../commons/endpoints";
 
 const AllResidents = () => {
-  const residents = useDataSource(RESIDENTS_API_BASE_URL);
+  const residents = useDataSource(`${RESIDENTS_API_BASE_URL}/all`);
 
   return <Residents residents={residents} />;
 };

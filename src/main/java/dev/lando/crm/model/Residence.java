@@ -28,9 +28,6 @@ public class Residence {
     @Column(name = "exterior_number")
     private String extNumber;
 
-    @Column(name = "is_empty")
-    private boolean isEmpty;
-
     @JsonManagedReference
     @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Resident> residents = new ArrayList<>();
@@ -39,11 +36,9 @@ public class Residence {
     @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pet> pets = new ArrayList<>();
 
-    public Residence(String street, String extNumber, boolean isEmpty) {
+    public Residence(String street, String extNumber) {
         this.street = street;
         this.extNumber = extNumber;
-        this.isEmpty = isEmpty;
-
     }
 
     private Residence() {

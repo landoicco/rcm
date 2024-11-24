@@ -20,7 +20,6 @@ const AddResident = () => {
     };
 
     // API POST request
-
     fetch("http://localhost:8080/api/residents", {
       method: "POST",
       headers: {
