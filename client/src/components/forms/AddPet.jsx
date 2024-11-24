@@ -15,7 +15,7 @@ const AddPet = () => {
     };
 
     // API POST request
-    fetch(`${PETS_API_BASE_URL}/add`, {
+    fetch(`${PETS_API_BASE_URL}/add/3`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

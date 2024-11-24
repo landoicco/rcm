@@ -28,6 +28,8 @@ public class Residence {
     @Column(name = "exterior_number")
     private String extNumber;
 
+    private String address;
+
     @JsonManagedReference
     @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Resident> residents = new ArrayList<>();
@@ -39,6 +41,8 @@ public class Residence {
     public Residence(String street, String extNumber) {
         this.street = street;
         this.extNumber = extNumber;
+
+        this.address = getStreet() + " St., " + getExtNumber();
     }
 
     private Residence() {

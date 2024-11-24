@@ -2,6 +2,7 @@ package dev.lando.crm.controller;
 
 import java.net.URISyntaxException;
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,6 +26,11 @@ public class ResidencesController {
 
     public ResidencesController(ResidenceRepository residenceRepository) {
         this.residenceRepository = residenceRepository;
+    }
+
+    @GetMapping("/residence/id/{id}")
+    Optional<Residence> getResidenceById(@PathVariable String id) {
+        return (Optional<Residence>) residenceRepository.findById(Long.valueOf(id));
     }
 
     @GetMapping("/residence/street/{street}")
