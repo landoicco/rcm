@@ -26,12 +26,11 @@ import jakarta.validation.Valid;
 public class PetsController {
 
     private PetRepository petRepository;
-
-    @Autowired
     private ResidenceRepository residenceRepository;
 
-    public PetsController(PetRepository petRepository) {
+    public PetsController(PetRepository petRepository, ResidenceRepository residenceRepository) {
         this.petRepository = petRepository;
+        this.residenceRepository = residenceRepository;
     }
 
     @GetMapping("/pets")

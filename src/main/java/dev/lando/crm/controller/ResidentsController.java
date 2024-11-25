@@ -2,6 +2,8 @@ package dev.lando.crm.controller;
 
 import java.net.URISyntaxException;
 import java.util.Collection;
+import java.util.Optional;
+
 import jakarta.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
@@ -13,17 +15,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.lando.crm.model.Residence;
 import dev.lando.crm.model.Resident;
+import dev.lando.crm.repo.ResidenceRepository;
 import dev.lando.crm.repo.ResidentRepository;
 
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "http://localhost:3000")
 public class ResidentsController {
-    private ResidentRepository residentRepository;
 
-    public ResidentsController(ResidentRepository contactRepository) {
-        this.residentRepository = contactRepository;
+    private ResidentRepository residentRepository;
+    private ResidenceRepository residenceRepository;
+
+    public ResidentsController(ResidentRepository residentRepository, ResidenceRepository residenceRepository) {
+        this.residentRepository = residentRepository;
+        this.residenceRepository = residenceRepository;
     }
 
     @GetMapping("/resident/all")
@@ -55,6 +62,22 @@ public class ResidentsController {
 
     @PostMapping("/residents")
     ResponseEntity<Resident> createResident(@Valid @RequestBody Resident resident) throws URISyntaxException {
+        Resident result = residentRepository.save(resident);
+        return ResponseEntity.ok().body(result);
+    }
+
+    @PostMapping("/resident/add/{street}/{extNumber}")
+    ResponseEntity<Resident> createResidentWithAddress(@Valid @RequestBody Resident resident,
+            @PathVariable String street,
+            @PathVariable String extNumber)
+            throws URISyntaxException {
+
+        Optional<Residence> residenceOpt = residenceRepository.findByStreetAndExtNumber(street, extNumber);
+        Residence residence = residenceOpt.get();
+
+        resident.setResidence(residence);
+        resident.setAddress(residence.getAddress());
+
         Resident result = residentRepository.save(resident);
         return ResponseEntity.ok().body(result);
     }
