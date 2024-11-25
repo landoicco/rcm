@@ -26,6 +26,7 @@ import jakarta.validation.Valid;
 public class PetsController {
 
     private PetRepository petRepository;
+
     @Autowired
     private ResidenceRepository residenceRepository;
 
@@ -42,9 +43,28 @@ public class PetsController {
     ResponseEntity<Pet> createPet(@Valid @RequestBody Pet pet, @PathVariable String residenceId)
             throws URISyntaxException {
         Optional<Residence> residenceOpt = residenceRepository.findById(Long.valueOf(residenceId));
+
+        // Get residence from Optional and set new pet
         Residence residence = residenceOpt.get();
+
         pet.setResidence(residence);
         pet.setAddress(residence.getAddress());
+
+        Pet result = petRepository.save(pet);
+        return ResponseEntity.ok().body(result);
+    }
+
+    @PostMapping("/pet/add/{street}/{extNumber}")
+    ResponseEntity<Pet> createPetWithAddress(@Valid @RequestBody Pet pet, @PathVariable String street,
+            @PathVariable String extNumber) throws URISyntaxException {
+        Optional<Residence> residenceOpt = residenceRepository.findByStreetAndExtNumber(street, extNumber);
+
+        // Get residence from Optional and set new pet
+        Residence residence = residenceOpt.get();
+
+        pet.setResidence(residence);
+        pet.setAddress(residence.getAddress());
+
         Pet result = petRepository.save(pet);
         return ResponseEntity.ok().body(result);
     }
