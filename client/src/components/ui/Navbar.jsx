@@ -13,6 +13,9 @@ const Navbar = () => {
             <a href="/resident/all">Show Residents</a>
           </li>
           <li>
+            <a href="/pet/all">Show Pets</a>
+          </li>
+          <li>
             <a href="/">About</a>
           </li>
         </ul>

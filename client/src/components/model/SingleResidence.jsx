@@ -10,18 +10,6 @@ const SingleResidence = ({ item }) => {
         <div className="card-action">
           <p>Street: {item.street}</p>
           <p>Exterior number: {item.extNumber}</p>
-          <div className="row">
-            <div>
-              <a href="/add" className="col teal darken-3 btn offset-s5 s3">
-                Add resident
-              </a>
-            </div>
-            <div>
-              <a href="/add" className="col teal darken-3 btn offset-s1 s3">
-                Add pet
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>

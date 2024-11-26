@@ -33,7 +33,7 @@ public class PetsController {
         this.residenceRepository = residenceRepository;
     }
 
-    @GetMapping("/pets")
+    @GetMapping("/pet/all")
     Collection<Pet> getAllPets() {
         return (Collection<Pet>) petRepository.findAll();
     }
