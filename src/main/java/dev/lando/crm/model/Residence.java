@@ -28,18 +28,21 @@ public class Residence {
     @Column(name = "exterior_number")
     private String extNumber;
 
-    @Column(name = "is_empty")
-    private boolean isEmpty;
+    private String address;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Resident> residents = new ArrayList<>();
 
-    public Residence(String street, String extNumber, boolean isEmpty) {
+    @JsonManagedReference
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Pet> pets = new ArrayList<>();
+
+    public Residence(String street, String extNumber) {
         this.street = street;
         this.extNumber = extNumber;
-        this.isEmpty = isEmpty;
 
+        this.address = getStreet() + " St., " + getExtNumber();
     }
 
     private Residence() {

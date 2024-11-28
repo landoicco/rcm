@@ -7,29 +7,32 @@ const Navbar = () => {
         </a>
         <ul className="left hide-on-med-and-down">
           <li>
-            <a href="/residences">Show Residences</a>
+            <a href="/residence/all">Show Residences</a>
           </li>
           <li>
-            <a href="/residents">Show Residents</a>
+            <a href="/resident/all">Show Residents</a>
+          </li>
+          <li>
+            <a href="/pet/all">Show Pets</a>
           </li>
           <li>
             <a href="/">About</a>
           </li>
         </ul>
-        <ul class="right hide-on-med-and-down">
+        <ul className="right hide-on-med-and-down">
           <li>
             <a href="/">
-              <i class="material-icons">search</i>
+              <i className="material-icons">search</i>
             </a>
           </li>
           <li>
-            <a href="/add">
-              <i class="material-icons">person_add</i>
+            <a href="/resident/add">
+              <i className="material-icons">person_add</i>
             </a>
           </li>
           <li>
-            <a href="/">
-              <i class="material-icons">pets</i>
+            <a href="/pet/add">
+              <i className="material-icons">pets</i>
             </a>
           </li>
         </ul>

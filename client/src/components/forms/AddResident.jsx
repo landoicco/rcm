@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { RESIDENTS_API_BASE_URL } from "../../commons/endpoints";
 
 const AddResident = () => {
   // Refs
@@ -16,12 +17,13 @@ const AddResident = () => {
       lastName: lastNameRef.current.value,
       email: emailRef.current.value,
       phoneNumber: phoneNumberRef.current.value,
-      address: addressRef.current.value,
     };
 
-    // API POST request
+    // Get address from user input
+    const [street, extNumber] = addressRef.current.value.split(" ");
 
-    fetch("http://localhost:8080/api/residents", {
+    // API POST request
+    fetch(`${RESIDENTS_API_BASE_URL}/add/${street}/${extNumber}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

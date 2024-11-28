@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import dev.lando.crm.model.Pet;
 import dev.lando.crm.model.Residence;
 import dev.lando.crm.model.Resident;
+import dev.lando.crm.repo.PetRepository;
 import dev.lando.crm.repo.ResidenceRepository;
 import dev.lando.crm.repo.ResidentRepository;
 
@@ -17,11 +19,14 @@ import dev.lando.crm.repo.ResidentRepository;
 public class MockDataLoader implements CommandLineRunner {
         private final ResidentRepository residentRepository;
         private final ResidenceRepository residenceRepository;
+        private final PetRepository petRepository;
 
         @Autowired
-        public MockDataLoader(ResidenceRepository residenceRepository, ResidentRepository residentRepository) {
+        public MockDataLoader(ResidenceRepository residenceRepository, ResidentRepository residentRepository,
+                        PetRepository petRepository) {
                 this.residentRepository = residentRepository;
                 this.residenceRepository = residenceRepository;
+                this.petRepository = petRepository;
         }
 
         @Override
@@ -32,7 +37,7 @@ public class MockDataLoader implements CommandLineRunner {
                  */
 
                 // Define Walsh family
-                Residence walshHouse = new Residence("Lilypad", "143", false);
+                Residence walshHouse = new Residence("Lilypad", "143");
                 Resident walshOne = new Resident("Stan", "Walsh", walshHouse,
                                 "swalsh@mail.com",
                                 "(+1) 55 06 00 3945");
@@ -44,7 +49,7 @@ public class MockDataLoader implements CommandLineRunner {
                 this.residentRepository.save(walshOne);
                 this.residentRepository.save(walshTwo);
 
-                Residence olsonHouse = new Residence("Lilypad", "414", false);
+                Residence olsonHouse = new Residence("Lilypad", "414");
                 Resident olsonOne = new Resident("Alysa", "Olson", olsonHouse,
                                 "aolson@mail.com",
                                 "(+1) 5514864030");
@@ -56,7 +61,7 @@ public class MockDataLoader implements CommandLineRunner {
                 this.residentRepository.save(olsonOne);
                 this.residentRepository.save(olsonTwo);
 
-                Residence franeckiHouse = new Residence("Lilypad", "133", false);
+                Residence franeckiHouse = new Residence("Lilypad", "133");
                 Resident franeckiOne = new Resident("Clement", "Franecki", franeckiHouse,
                                 "clementf@mail.com",
                                 "(+1) 5514864030");
@@ -67,16 +72,21 @@ public class MockDataLoader implements CommandLineRunner {
                                 "jaynef@mail.com",
                                 "(+1)-661-699-9222");
 
+                Pet franeckiPetOne = new Pet("Bruno", "Cat", franeckiHouse);
+                Pet franeckiPetTwo = new Pet("Marie", "Cat", franeckiHouse);
+
                 this.residenceRepository.save(franeckiHouse);
                 this.residentRepository.save(franeckiOne);
                 this.residentRepository.save(franeckiTwo);
                 this.residentRepository.save(franeckiThree);
+                this.petRepository.save(franeckiPetOne);
+                this.petRepository.save(franeckiPetTwo);
 
                 /*
                  * DEFINE BELL STREET
                  */
                 // Define Robertson family
-                Residence robertsonHouse = new Residence("Bell", "234", false);
+                Residence robertsonHouse = new Residence("Bell", "234");
 
                 Resident robertsonOne = new Resident("Kevin", "Robertson", robertsonHouse,
                                 "kevinr@mail.com",
@@ -97,7 +107,7 @@ public class MockDataLoader implements CommandLineRunner {
                  * DEFINE QUARRY STREET
                  */
                 // Define Perez family
-                Residence perezHouse = new Residence("Quarry", "453", false);
+                Residence perezHouse = new Residence("Quarry", "453");
 
                 Resident perezOne = new Resident("Carlos", "Perez", perezHouse,
                                 "cperez@mail.com",
@@ -107,7 +117,7 @@ public class MockDataLoader implements CommandLineRunner {
                 this.residentRepository.save(perezOne);
 
                 // Define O'Hara family
-                Residence oharaHouse = new Residence("Quarry", "323", false);
+                Residence oharaHouse = new Residence("Quarry", "323");
 
                 Resident oharaOne = new Resident("Michael", "O'Hara", oharaHouse,
                                 "mohara@mail.com",
@@ -119,15 +129,18 @@ public class MockDataLoader implements CommandLineRunner {
                 /*
                  * DEFINE SAPPHIRE STREET
                  */
-                // Define Martell family adding
-                Residence martellHouse = new Residence("Sapphire", "354", false);
+                // Define Martell family
+                Residence martellHouse = new Residence("Sapphire", "354");
 
                 Resident martellOne = new Resident("Sonny", "Martell", martellHouse,
                                 "sonnyp@mail.com",
                                 "(+1) 55 65 15 5664");
 
+                Pet martellPet = new Pet("Firulais", "Dog", martellHouse);
+
                 this.residenceRepository.save(martellHouse);
                 this.residentRepository.save(martellOne);
+                this.petRepository.save(martellPet);
 
         }
 }

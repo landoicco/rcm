@@ -3,7 +3,7 @@ import useDataSource from "../../hooks/useDataSource";
 import { RESIDENCES_API_BASE_URL } from "../../commons/endpoints";
 
 const Residences = () => {
-  const residences = useDataSource(RESIDENCES_API_BASE_URL);
+  const residences = useDataSource(`${RESIDENCES_API_BASE_URL}/all`);
   return (
     <div className="container">
       <h3 className="center">Residences</h3>
