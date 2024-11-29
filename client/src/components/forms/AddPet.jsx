@@ -1,22 +1,27 @@
-import { useRef } from "react";
+//@flow
+
+import React, { createRef } from "react";
 
 import { PETS_API_BASE_URL } from "../../commons/endpoints";
 
-const AddPet = () => {
-  const nameRef = useRef();
-  const typeRef = useRef();
-  const addressRef = useRef();
+const AddPet = (): React.Node => {
+  const nameRef = createRef<HTMLInputElement>();
+  const typeRef = createRef<HTMLInputElement>();
+  const addressRef = createRef<HTMLInputElement>();
 
-  const submitPet = (e) => {
+  const submitPet = (e: MouseEvent) => {
     e.preventDefault();
 
     const newPet = {
-      name: nameRef.current.value,
-      type: typeRef.current.value,
+      name: nameRef.current?.value,
+      type: typeRef.current?.value,
     };
 
     // Get address from user input
-    const [street, extNumber] = addressRef.current.value.split(" ");
+    const [street, extNumber] = addressRef.current?.value.split(" ") ?? [
+      "",
+      "",
+    ];
 
     // API POST request
     fetch(`${PETS_API_BASE_URL}/add/${street}/${extNumber}`, {

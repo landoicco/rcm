@@ -1,26 +1,31 @@
-import { useRef } from "react";
+//@flow
+
+import React, { createRef } from "react";
 import { RESIDENTS_API_BASE_URL } from "../../commons/endpoints";
 
-const AddResident = () => {
+const AddResident = (): React.Node => {
   // Refs
-  const firstNameRef = useRef();
-  const lastNameRef = useRef();
-  const emailRef = useRef();
-  const phoneNumberRef = useRef();
-  const addressRef = useRef();
+  const firstNameRef = createRef<HTMLInputElement>();
+  const lastNameRef = createRef<HTMLInputElement>();
+  const emailRef = createRef<HTMLInputElement>();
+  const phoneNumberRef = createRef<HTMLInputElement>();
+  const addressRef = createRef<HTMLInputElement>();
 
-  const submitContact = (e) => {
+  const submitContact = (e: MouseEvent) => {
     e.preventDefault();
 
     let newContact = {
-      firstName: firstNameRef.current.value,
-      lastName: lastNameRef.current.value,
-      email: emailRef.current.value,
-      phoneNumber: phoneNumberRef.current.value,
+      firstName: firstNameRef.current?.value,
+      lastName: lastNameRef.current?.value,
+      email: emailRef.current?.value,
+      phoneNumber: phoneNumberRef.current?.value,
     };
 
     // Get address from user input
-    const [street, extNumber] = addressRef.current.value.split(" ");
+    const [street, extNumber] = addressRef.current?.value.split(" ") ?? [
+      "",
+      "",
+    ];
 
     // API POST request
     fetch(`${RESIDENTS_API_BASE_URL}/add/${street}/${extNumber}`, {

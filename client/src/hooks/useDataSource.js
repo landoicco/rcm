@@ -1,7 +1,11 @@
-import { useEffect, useState } from "react";
+//@flow
 
-const useDataSource = (url) => {
-  const [data, setData] = useState([]);
+import { useEffect, useState } from "react";
+import type { RCMDataEntity } from "../commons/types";
+
+const useDataSource = (url: string): RCMDataEntity => {
+  const initialData: RCMDataEntity = [];
+  const [data, setData] = useState(initialData);
 
   useEffect(() => {
     fetch(url)
