@@ -1,6 +1,8 @@
+//@flow
+
 import { useEffect, useState } from "react";
 
-const useCatImageUrl = () => {
+const useCatImageUrl = (): string => {
   const catImageApiURL = "https://api.thecatapi.com/v1/images/search";
 
   const [url, setUrl] = useState("");

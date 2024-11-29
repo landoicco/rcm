@@ -1,4 +1,8 @@
-const Navbar = () => {
+//@flow
+
+import React from "react";
+
+const Navbar = (): React.Node => {
   return (
     <nav>
       <div className="nav-wrapper cyan darken-3">
@@ -33,6 +37,11 @@ const Navbar = () => {
           <li>
             <a href="/pet/add">
               <i className="material-icons">pets</i>
+            </a>
+          </li>
+          <li>
+            <a href="/residence/add">
+              <i className="material-icons">home</i>
             </a>
           </li>
         </ul>

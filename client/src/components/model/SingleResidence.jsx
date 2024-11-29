@@ -1,4 +1,9 @@
-const SingleResidence = ({ item }) => {
+//@flow
+
+import React from "react";
+import type { ResidenceType } from "../../commons/types";
+
+const SingleResidence = ({ item }: ResidenceType): React.Node => {
   return (
     <div>
       <div className="card teal accent-4">
