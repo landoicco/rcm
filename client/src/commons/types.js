@@ -2,16 +2,16 @@
 
 export type RCMDataEntity = Residence[] | Resident[] | Pet[];
 
+export type DataItem = {
+  item: Residence | Resident | Pet,
+};
+
 // Residence related types
 export type Residence = {
   id: string,
   street: string,
   extNumber: string,
   address: string,
-};
-
-export type ResidenceType = {
-  item: Residence,
 };
 
 // Resident related types
@@ -25,10 +25,6 @@ export type Resident = {
   phoneNumber: string,
 };
 
-export type ResidentType = {
-  item: Resident,
-};
-
 export type ResidentsType = {
   residents: Resident[],
 };
@@ -39,8 +35,4 @@ export type Pet = {
   name: string,
   address: string,
   type: string,
-};
-
-export type PetType = {
-  item: Pet,
 };

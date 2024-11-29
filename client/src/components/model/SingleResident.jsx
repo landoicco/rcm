@@ -1,9 +1,9 @@
 //@flow
 
 import React from "react";
-import type { ResidentType } from "../../commons/types";
+import type { DataItem } from "../../commons/types";
 
-const SingleResident = ({ item }: ResidentType): React.Node => {
+const SingleResident = ({ item }: DataItem): React.Node => {
   return (
     <div>
       <div className="card teal lighten-4">
