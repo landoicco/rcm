@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SinglePet The component render correctly 1`] = `
+<div>
+  <div
+    class="row"
+  >
+    <div
+      class="col s12 m7"
+    >
+      <div
+        class="card"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="card-image col s4"
+          >
+            <img
+              alt="cat or dog"
+              src=""
+              style="width: 200px; height: 200px;"
+            />
+          </div>
+          <div
+            class="card-content col offset-s1 s7"
+          >
+            <p>
+              This is a simple description of the pet in question **TODO**
+            </p>
+            <p
+              style="margin-top: 50px;"
+            >
+              <b
+                style="color: rgb(43, 135, 76);"
+              >
+                Address:
+              </b>
+               
+              here
+            </p>
+          </div>
+        </div>
+        <div
+          class="card-action"
+        >
+          <p
+            href="/"
+          >
+            This is a 
+            Dog
+             named
+             
+            <b
+              style="color: rgb(43, 135, 76);"
+            >
+              Testy
+            </b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

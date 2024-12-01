@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pets The component render correctly 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <h3
+      class="center"
+    >
+      Pets
+    </h3>
+  </div>
+</div>
+`;
