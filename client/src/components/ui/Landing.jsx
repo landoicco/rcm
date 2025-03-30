@@ -1,3 +1,6 @@
+//@flow
+
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import ResidentFinder from "../forms/ResidentFinder";
@@ -8,7 +11,7 @@ import AddResidence from "../forms/AddResidence";
 import { AllResidents, ResidentSearchResult } from "../containers/Residents";
 import Residences from "../containers/Residences";
 
-const Landing = () => {
+const Landing = (): React.Node => {
   return (
     <BrowserRouter>
       <Routes>

@@ -1,15 +1,17 @@
-import { useRef } from "react";
+//@flow
+
+import React, { createRef } from "react";
 import { RESIDENCES_API_BASE_URL } from "../../commons/endpoints";
 
-const AddResidence = () => {
-  const streetRef = useRef();
-  const extNumberRef = useRef();
+const AddResidence = (): React.Node => {
+  const streetRef = createRef<HTMLInputElement>();
+  const extNumberRef = createRef<HTMLInputElement>();
 
-  const submitResidence = (e) => {
+  const submitResidence = (e: MouseEvent) => {
     e.preventDefault();
     const newResidence = {
-      street: streetRef.current.value,
-      extNumber: extNumberRef.current.value,
+      street: streetRef.current?.value,
+      extNumber: extNumberRef.current?.value,
     };
 
     // API POST request

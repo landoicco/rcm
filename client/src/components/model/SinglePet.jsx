@@ -1,6 +1,10 @@
-import useCatImageUrl from "../../hooks/useCatImageUrl";
+//@flow
 
-const SinglePet = ({ item }) => {
+import React from "react";
+import useCatImageUrl from "../../hooks/useCatImageUrl";
+import type { DataItem } from "../../commons/types";
+
+const SinglePet = ({ item }: DataItem): React.Node => {
   const catImageUrl = useCatImageUrl();
   return (
     <div className="row">
